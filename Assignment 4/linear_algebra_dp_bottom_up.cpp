@@ -13,7 +13,7 @@ long int getFibNum(long int n)
     long int f2 = 1;
     if (n > 2)
     {
-        for (long int i = 4; i <= n; i++)
+        for (long int i = 4; i < n; i++)
         {
             long int mat2[2][2] = {{0, 1}, {1, 1}};
             long int a = (mat1[0][0] * mat2[0][0]) + (mat1[0][1] * mat2[1][0]);
