@@ -107,8 +107,7 @@ void mergeSort3Way(int gArray[], int n)
 { 
     if (n == 0)  
         return;  
-  
-   
+
     int fArray[n];  
   
   

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void merge(vector<int>& a, int low, int mid1, int mid2, int high, vector<int>& b) 
+void merge(vector<int> a, int low, int mid1, int mid2, int high, vector<int> b) 
 {
     int i = low, j = mid1, k = mid2, l = low;
 
@@ -69,7 +69,7 @@ void merge(vector<int>& a, int low, int mid1, int mid2, int high, vector<int>& b
     
 }
 
-void MergeSortRec(vector<int>& a, int low, int high, vector<int>& b) 
+void MergeSortRec(vector<int> a, int low, int high, vector<int> b) 
 {
     if(high - low < 2) {
         return;
@@ -86,20 +86,20 @@ void MergeSortRec(vector<int>& a, int low, int high, vector<int>& b)
     merge(b, low, mid1, mid2, high, a);
 }
 
-void MergeSort(vector<int>& a, int n) 
+void MergeSort(vector<int> a, int n) 
 {
     if(n==0)
         return;
     
     vector<int> b;
 
-     for(int i=0; i < a.size(); i++) {
+     for(int i=0; i < n; i++) {
         b[i] = a[i];
     }
     
-    MergeSortRec(b, 0, n-1, a);
+    MergeSortRec(b, 0, n, a);
 
-    for(int i=0; i < b.size(); i++) {
+    for(int i=0; i < n; i++) {
         a[i] = b[i];
     }
 
