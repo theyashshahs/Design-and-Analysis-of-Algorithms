@@ -30,7 +30,7 @@ void merge(vector<int>& a, int low, int mid1, int mid2, int high, vector<int>& b
             b[l++] = a[i++];
 
         else
-            b[l++] = a[k++];
+            b[l++] = a[j++];
         
     }
     
@@ -97,7 +97,7 @@ void MergeSort(vector<int>& a, int n)
         b[i] = a[i];
     }
     
-    MergeSortRec(b, 0, n, a);
+    MergeSortRec(b, 0, n-1, a);
 
     for(int i=0; i < b.size(); i++) {
         a[i] = b[i];
@@ -129,7 +129,7 @@ int main()
    
     //Average Case file execution
     start1 = clock();
-    MergeSort(v, v.size() - 1);
+    MergeSort(v, v.size());
     end1 = clock();
 
     fout.open("File 1sort.txt", ios::out); 
@@ -143,7 +143,7 @@ int main()
     sort(v1.begin(), v1.end());
 
     clock_t start2 = clock();
-    MergeSort(v1, v1.size() - 1);
+    MergeSort(v1, v1.size());
     clock_t end2 = clock();
 
     //Reverse sorted file
@@ -156,7 +156,7 @@ int main()
     fout.close();
 
     clock_t start3 = clock();
-    MergeSort(v1, v1.size() - 1);
+    MergeSort(v1, v1.size());
     clock_t end3 = clock();
 
     

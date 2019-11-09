@@ -77,7 +77,7 @@ int main() {
     clock_t end1, start1;
 
     //Average Case file execution
-    fin.open("File 5.txt", ios::in);    //change the filename
+    fin.open("File 4.txt", ios::in);    //change the filename
 
     while (!fin.eof())
     {
@@ -96,7 +96,7 @@ int main() {
     v = mergesort(v, 0, v.size() - 1);
     end1 = clock();
 
-    fout.open("File 6sort.txt", ios::out);  //change the filename
+    fout.open("File 4sort.txt", ios::out);  //change the filename
     for(int i = 0; i < v.size(); i++ )
     fout << v[i] << "\n";
     fout.close();
@@ -128,7 +128,7 @@ int main() {
     //Reverse sorted file
     reverse(v1.begin(), v1.end());
 
-    fout.open("File 6sortrev.txt", ios::out);   //change the filename
+    fout.open("File 4sortrev.txt", ios::out);   //change the filename
     for(int i = 0; i < v1.size(); i++ )
     fout << v1[i] << "\n";
 
