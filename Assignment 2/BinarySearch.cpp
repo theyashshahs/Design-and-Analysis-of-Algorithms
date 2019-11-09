@@ -12,9 +12,10 @@ long int BinarySearch(vector<int> v, long int c){
 
         if(v[mid] == c)
             return mid;
+
         else if(v[mid] > c)
             end = mid -1;
-        
+            
         else
             start = mid + 1;
     }
