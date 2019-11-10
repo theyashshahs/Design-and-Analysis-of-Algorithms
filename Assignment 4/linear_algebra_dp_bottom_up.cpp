@@ -9,8 +9,8 @@ long int getFibNum(long int n)
         return 0;
     }
     long int mat1[2][2] = {{0, 1}, {1, 1}};
-    long int f1 = 1;
-    long int f2 = 1;
+    // long int f1 = 1;
+    // long int f2 = 1;
     if (n > 2)
     {
         for (long int i = 4; i < n; i++)

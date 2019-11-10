@@ -31,10 +31,9 @@ void multiply(long long int F[2][2], long long int M[2][2])
   
 void power(long long int F[2][2], int n) 
 { 
-  int i; 
   long long int M[2][2] = {{1,1},{1,0}}; 
   
-  for (i = 2; i <= n; i++) 
+  for (int i = 2; i <= n; i++) 
       multiply(F, M); 
 } 
   
