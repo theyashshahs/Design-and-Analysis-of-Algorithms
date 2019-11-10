@@ -1,47 +1,42 @@
 #include <bits/stdc++.h> 
+
 using namespace std; 
-  
-void Activity_Selector(vector<int> s, vector<int> f)
+
+struct Activity
 { 
-    vector<pair<int,int>> a;  
-  
-    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> p; 
-  
-    for(int i = 0; i < s.size(); i++)
-    { 
-        p.push(make_pair(f[i],s[i])); 
-    } 
-    
-    auto it = p.top(); 
-    int start = it.second; 
-    int end = it.first; 
+	int start, finish; 
+}; 
 
-    p.pop(); 
-    a.push_back(make_pair(start,end)); 
-  
-    while(!p.empty()){ 
-        auto itr = p.top(); 
-        p.pop(); 
-
-        if(itr.second >= end){ 
-            start = itr.second; 
-            end = itr.first; 
-            a.push_back(make_pair(start,end)); 
-        } 
-    } 
-    cout << "Following Activities are be selected :- \n\n"; 
-  
-    for(auto itr=a.begin(); itr!=a.end(); itr++)
-    { 
-        cout << "{" << (*itr).first << ", " << (*itr).second << "}" << endl; 
-    } 
+bool compareActivity(Activity s1, Activity s2) 
+{ 
+	return (s1.finish < s2.finish); 
 } 
 
+void MaxActivities(Activity arr[], int n) 
+{ 
+	sort(arr, arr+n, compareActivity); 
+
+	cout << "Activities selected are : \n"; 
+
+	int i = 0; 
+	cout << "(" << arr[i].start << ", " << arr[i].finish << "), "; 
+
+	for (int j = 1; j < n; j++) 
+	{ 
+	    if (arr[j].start >= arr[i].finish) 
+	    { 
+		    cout << "(" << arr[j].start << ", " << arr[j].finish << "), "; 
+		    i = j; 
+	    } 
+	} 
+} 
+ 
 int main() 
 { 
-    vector<int>s = {1, 3, 0, 5, 8, 5}; 
-    vector<int>f = {2, 4, 6, 7, 9, 9}; 
-    Activity_Selector(s,f); 
-  
-    return 0; 
+	Activity arr[] = {{5, 9}, {1, 2}, {3, 8}, {0, 6}, {5, 8}, {8, 9}}; 
+	int n = sizeof(arr)/sizeof(arr[0]); 
+
+	MaxActivities(arr, n); 
+
+	return 0; 
 } 

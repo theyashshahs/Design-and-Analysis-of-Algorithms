@@ -47,15 +47,15 @@ void Graph::BFS(int start)
   
     visited[start] = true; 
   
-    int vis; 
+    int visit; 
     while (!q.empty()) { 
-        vis = q[0]; 
+        visit = q[0]; 
    
-        cout << vis << " "; 
+        cout << visit << " "; 
         q.erase(q.begin()); 
   
         for (int i = 0; i < v; i++) { 
-            if (adj[vis][i] == 1 && (!visited[i])) { 
+            if (adj[visit][i] == 1 && (!visited[i])) { 
 
                 q.push_back(i); 
   
