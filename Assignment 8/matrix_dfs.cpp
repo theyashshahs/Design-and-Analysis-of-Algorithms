@@ -22,6 +22,7 @@ Graph::Graph(int v, int e)
 	this->v = v; 
 	this->e = e; 
 	adj = new int*[v]; 
+
 	for (int row = 0; row < v; row++) { 
 		adj[row] = new int[v]; 
 		for (int column = 0; column < v; column++) { 

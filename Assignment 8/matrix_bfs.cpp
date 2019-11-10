@@ -1,71 +1,76 @@
-#include<bits/stdc++.h>
-  
+#include <bits/stdc++.h> 
 using namespace std; 
+  
+class Graph { 
    
-class Graph 
-{ 
-    int V;    
-
-    list<int> *adj;
-
+    int v; 
+   
+    int e; 
+  
+    int** adj; 
+  
 public: 
-    Graph(int V);   
-    
-    void addEdge(int v, int w);  
+
+    Graph(int v, int e); 
    
-    void BFS(int s);   
+    void addEdge(int start, int e); 
+  
+    void BFS(int start); 
 }; 
-  
-Graph::Graph(int V) 
-{ 
-    this->V = V; 
-    adj = new list<int>[V]; 
-} 
-  
-void Graph::addEdge(int v, int w) 
-{ 
-    adj[v].push_back(w); 
-}
-  
-void Graph::BFS(int s) 
-{ 
-    
-    bool *visited = new bool[V]; 
-    for(int i = 0; i < V; i++) 
-        visited[i] = false; 
-  
-    
-    list<int> queue; 
    
-    visited[s] = true; 
-    queue.push_back(s); 
-  
+Graph::Graph(int v, int e) 
+{ 
+    this->v = v; 
+    this->e = e; 
 
-    list<int>::iterator i; 
+    adj = new int*[v];
+     
+    for (int row = 0; row < v; row++) { 
+        adj[row] = new int[v]; 
+        for (int column = 0; column < v; column++) { 
+            adj[row][column] = 0; 
+        } 
+    } 
+} 
+   
+void Graph::addEdge(int start, int e) 
+{  
+    adj[start][e] = 1; 
+    adj[e][start] = 1; 
+} 
+   
+void Graph::BFS(int start) 
+{ 
+    vector<bool> visited(v, false); 
+    vector<int> q; 
+    q.push_back(start); 
   
-    while(!queue.empty()) 
-    { 
+    visited[start] = true; 
+  
+    int vis; 
+    while (!q.empty()) { 
+        vis = q[0]; 
+   
+        cout << vis << " "; 
+        q.erase(q.begin()); 
+  
+        for (int i = 0; i < v; i++) { 
+            if (adj[vis][i] == 1 && (!visited[i])) { 
 
-        s = queue.front(); 
-        cout << s << " "; 
-        queue.pop_front(); 
+                q.push_back(i); 
   
-        for (i = adj[s].begin(); i != adj[s].end(); ++i) 
-        { 
-            if (!visited[*i]) 
-            { 
-                visited[*i] = true; 
-                queue.push_back(*i); 
+                visited[i] = true; 
             } 
         } 
     } 
 } 
   
-
 int main() 
 { 
-    Graph g(6); 
+    int v = 6, e = 15; // number of vertex and edges respectively
  
+	Graph g(v, e); 
+	
     g.addEdge(0, 1); 
     g.addEdge(0, 2); 
     g.addEdge(1, 2); 
@@ -82,9 +87,5 @@ int main()
     g.addEdge(4, 5);
     g.addEdge(5, 4);
 
-
-    cout << "BFS " << "(starting from vertex 3) \n"; 
-    g.BFS(3); 
-  
-    return 0; 
+    g.BFS(0); 
 } 
