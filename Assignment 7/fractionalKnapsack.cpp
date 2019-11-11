@@ -6,7 +6,7 @@ struct Item
 { 
 	int value, weight; 
 
-	Item(int value, int weight) : value(value), weight(weight) {} 
+	// Item(int value, int weight) : value(value), weight(weight) {} 
 }; 
 
 bool cmp(struct Item a, struct Item b) 

@@ -34,6 +34,7 @@ void MaxActivities(Activity arr[], int n)
 int main() 
 { 
 	Activity arr[] = {{5, 9}, {1, 2}, {3, 8}, {0, 6}, {5, 8}, {8, 9}}; 
+
 	int n = sizeof(arr)/sizeof(arr[0]); 
 
 	MaxActivities(arr, n); 

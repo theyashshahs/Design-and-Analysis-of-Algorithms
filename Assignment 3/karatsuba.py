@@ -1,4 +1,5 @@
 def karat(x,y):
+    
     if len(str(x)) < 2 or len(str(y)) < 2:
         return x*y
 

@@ -33,16 +33,15 @@ void Graph::addEdge(int v, int w)
   
 void Graph::DFS_list(int v, bool visited[]) 
 { 
-   
     visited[v] = true; 
     cout << v << " "; 
   
     list<int>::iterator i; 
+
     for (i = adj[v].begin(); i != adj[v].end(); ++i) 
         if (!visited[*i]) 
             DFS_list(*i, visited); 
 } 
-  
 
 void Graph::DFS(int v) 
 { 

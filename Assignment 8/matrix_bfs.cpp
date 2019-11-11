@@ -43,14 +43,15 @@ void Graph::BFS(int start)
 { 
     vector<bool> visited(v, false); 
     vector<int> q; 
+
     q.push_back(start); 
-  
     visited[start] = true; 
   
     int visit; 
-    while (!q.empty()) { 
+
+    while (!q.empty()) {
+         
         visit = q[0]; 
-   
         cout << visit << " "; 
         q.erase(q.begin()); 
   
