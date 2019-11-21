@@ -13,12 +13,15 @@ void init_fib() {
 
 long long int fibonacci(long int n) {
   if (F[n] < 0) {
+
     if (n==0) {
       F[n] = 0;
     }
+
     else if (n == 1) {
       F[n] = 1;
     }
+    
     else {
       F[n] = fibonacci(n-1) + fibonacci(n-2);
     }

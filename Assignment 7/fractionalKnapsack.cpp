@@ -46,7 +46,7 @@ void fractionalKnapsack(int Weight, struct Item array[], int n)
 
 int main() 
 { 
-	int Weight = 100; 
+	int Weight = 50; 
 	Item array[] = {{50, 10}, {90, 20}, {120, 30}, {100, 40}}; 
 
 	int n = sizeof(array) / sizeof(array[0]); 
